@@ -1,14 +1,41 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fcommerce&project-name=commerce&repo-name=commerce&demo-title=Next.js%20Commerce&demo-url=https%3A%2F%2Fdemo.vercel.store&demo-image=https%3A%2F%2Fbigcommerce-demo-asset-ksvtgfvnd.vercel.app%2Fbigcommerce.png&env=COMPANY_NAME,SHOPIFY_REVALIDATION_SECRET,SHOPIFY_STORE_DOMAIN,SHOPIFY_STOREFRONT_ACCESS_TOKEN,SITE_NAME)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fcommerce&project-name=commerce&repo-name=commerce&demo-title=Next.js%20Commerce&demo-url=https%3A%2F%2Fdemo.vercel.store&demo-image=https%3A%2F%2Fbigcommerce-demo-asset-ksvtgfvnd.vercel.app%2Fbigcommerce.png&env=COMPANY_NAME,SHOPIFY_REVALIDATION_SECRET,**NEXT_PUBLIC_SHOPIFY_**STORE_DOMAIN,SHOPIFY_STOREFRONT_ACCESS_TOKEN,SITE_NAME)
 
-# Next.js Commerce
+# 🐾 PetShop – Headless Shopify E-commerce Store
 
-A high-performance, server-rendered Next.js App Router ecommerce application.
+A fully functional and modern pet shop e-commerce web app built using **Next.js**, **Shopify Storefront API**, **Apollo Client**, and **Zustand**. This project showcases advanced features like dynamic product filtering, responsive UI, and clean state management, tailored for a performant and customizable storefront experience.
 
-This template uses React Server Components, Server Actions, `Suspense`, `useOptimistic`, and more.
+## 🚀 Features
 
-<h3 id="v1-note"></h3>
+- 💚 **Next.js App Router** (with SSR/CSR where appropriate)
+- 🛍️ **Shopify Storefront API** integration (via GraphQL)
+- ⚡ **Apollo Client** for data fetching
+- 🧠 **Zustand** for filter UI state management
+- 🔍 Client-side product search + filters (category, vendor, price, size)
+- 🧼 Clean folder structure and reusable GraphQL queries/fragments
 
-> Note: Looking for Next.js Commerce v1? View the [code](https://github.com/vercel/commerce/tree/v1), [demo](https://commerce-v1.vercel.store), and [release notes](https://github.com/vercel/commerce/releases/tag/v1).
+---
+
+## 🧱 Tech Stack
+
+| Tech                                                              | Purpose                                         |
+| ----------------------------------------------------------------- | ----------------------------------------------- |
+| [Next.js](https://nextjs.org/)                                    | React framework for routing and SSR/SSG         |
+| [Shopify Storefront API](https://shopify.dev/docs/api/storefront) | Headless e-commerce backend                     |
+| [Apollo Client](https://www.apollographql.com/docs/react/)        | GraphQL data fetching (search, products)        |
+| [Zustand](https://zustand-demo.pmnd.rs/)                          | Global state for filter UI                      |
+| [Tailwind CSS](https://tailwindcss.com/)                          | Utility-first styling                           |
+| [Headless UI](https://headlessui.com/)                            | Accessible UI components for dropdowns/popovers |
+
+---
+
+## 🛒 Filter System
+
+This project uses **Zustand** to store and update filter state, which is then used in an **Apollo GraphQL `useQuery`** to fetch matching products client-side.
+
+Example filters:
+
+- Category (Dog, Cat, Bird)
+- Price range (under $10, $10–$30, etc.)
 
 ## Providers
 

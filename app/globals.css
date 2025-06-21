@@ -1,7 +1,97 @@
 @import 'tailwindcss';
 
+/* --- Core Tailwind Plugins --- */
 @plugin "@tailwindcss/container-queries";
 @plugin "@tailwindcss/typography";
+
+/* --- Theme Customization with @theme --- */
+@theme {
+  /*
+   * Colors:
+   * Translate your `extend.colors` into CSS variables.
+   * Use RGB format (e.g., "R G B") for colors if you want to use
+   * Tailwind's opacity modifiers like `bg-brand-primary/50`.
+   */
+  --color-brand-primary: rgb(26, 71, 49); /* #1A4731 */
+  --color-brand-secondary: rgb(235, 241, 232); /* #EBF1E8 */
+  --color-brand-accent: rgb(199, 93, 52); /* #C75D34 */
+  --color-brand-background: rgb(249, 247, 244); /* #F9F7F4 */
+
+  --color-neutral-900: rgb(28, 28, 28); /* #1C1C1C */
+  --color-neutral-700: rgb(74, 74, 74); /* #4A4A4A */
+  --color-neutral-500: rgb(142, 142, 142); /* #8E8E8E */
+  --color-neutral-300: rgb(209, 209, 209); /* #D1D1D1 */
+  --color-neutral-100: rgb(245, 245, 245); /* #F5F5F5 */
+  --color-neutral-50: rgb(255, 255, 255); /* #FFFFFF */
+
+  /* generate grayscale colors */
+  --color-gray-900: rgb(28, 28, 28); /* #1C1C1C */
+  --color-gray-800: rgb(38, 38, 38); /* #262626 */
+  --color-gray-700: rgb(48, 48, 48); /* #303030 */
+  --color-gray-600: rgb(58, 58, 58); /* #3A3A3A */
+  --color-gray-500: rgb(68, 68, 68); /* #444444 */
+  --color-gray-400: rgb(78, 78, 78); /* #4E4E4E */
+  --color-gray-300: rgb(88, 88, 88); /* #585858 */
+  --color-gray-200: rgb(98, 98, 98); /* #626262 */
+
+  /*
+   * Font Families:
+   * Define your font stacks as CSS variables.
+   * `var(--font-lora)` and `var(--font-inter)` are placeholders for actual font loading.
+   */
+  --font-lato: 'Lato', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+
+  /*
+   * Override Tailwind's default font families and set the global default.
+   * --font-heading is a custom variable you can use with `font-heading` class.
+   */
+  --font-sans: var(--font-lato); /* Maps Tailwind's default sans to Inter */
+  --font-serif: var(
+    --font-montserrat
+  ); /* Maps Tailwind's default serif to Lora */
+  --font-heading: var(--font-montserrat); /* Custom heading font utility */
+
+  /*
+   * Container Configuration:
+   * `center: true` and `padding` are typically handled by applying classes directly
+   * in your layout components (e.g., `container mx-auto px-4 md:px-8`).
+   * The `screens` part for breakpoints translates directly.
+   */
+  --screen-2xl: 1400px; /* Equivalent to screens: { '2xl': '1400px' } */
+
+  /*
+   * Box Shadow:
+   * Define your custom shadows as CSS variables.
+   */
+  --shadows-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  /*
+   * Transition Property:
+   * Define your custom transition properties.
+   */
+  --transition-property-height: height;
+  --transition-property-spacing: margin, padding;
+
+  --animate-marquee: marquee 300s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/* --- Built-in Background Images (No direct @theme equivalent needed) ---
+   `gradient-radial` and `gradient-conic` are typically handled by core Tailwind CSS
+   unless you're redefining their underlying CSS properties.
+   No explicit @theme variable is needed for these unless you have custom gradient values.
+   If you need specific custom gradients, you'd define them as CSS variables
+   or use `@utilities` for custom classes.
+*/
 
 @layer base {
   *,
@@ -13,11 +103,11 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */
 
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
   img[loading='lazy'] {
@@ -28,5 +118,9 @@
 a,
 input,
 button {
-  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50;
+}
+
+.container {
+  @apply max-w-screen-2xl mx-auto px-4 md:px-8;
 }
