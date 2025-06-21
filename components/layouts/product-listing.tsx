@@ -36,14 +36,10 @@ export default function ProductListing({
 
   useEffect(() => {
     if (initialData) {
-      console.log('writing to cache', initialData)
       const cacheData =
         type === 'collection'
           ? { collection: initialData.collection }
           : { search: initialData.search }
-
-      console.log({ cacheData })
-      console.log({ initialData })
 
       client.writeQuery({
         query: gqlQuery,

@@ -1,7 +1,6 @@
 'use client'
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
-import { Input } from 'components/ui/input'
 import Form from 'next/form'
 import { useSearchParams } from 'next/navigation'
 
@@ -13,13 +12,14 @@ export const Search: React.FC = () => {
       action="/search"
       className="w-max-[550px] relative w-full lg:w-80 xl:w-full"
     >
-      <Input
+      <input
         key={searchParams?.get('q')}
         type="text"
         name="q"
         placeholder="Search for products..."
         autoComplete="off"
         defaultValue={searchParams?.get('q') || ''}
+        className="text-md w-full rounded-lg border bg-white px-4 py-2 text-black placeholder:text-neutral-500 md:text-sm"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
         <MagnifyingGlassIcon className="h-4" />
@@ -30,8 +30,11 @@ export const Search: React.FC = () => {
 
 export const SearchSkeleton: React.FC = () => {
   return (
-    <form className="relative w-max-[550px] w-full lg:w-80 xl:w-full">
-      <Input placeholder="Search for products..." />
+    <form className="w-max-[550px] relative w-full lg:w-80 xl:w-full">
+      <input
+        placeholder="Search for products..."
+        className="w-full rounded-lg border bg-white px-4 py-2 text-sm text-black placeholder:text-neutral-500"
+      />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
         <MagnifyingGlassIcon className="h-4" />
       </div>

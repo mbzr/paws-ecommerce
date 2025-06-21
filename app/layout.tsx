@@ -1,7 +1,6 @@
 import { CartProvider } from 'components/cart/cart-context'
 import { Footer } from 'components/layouts/footer'
 import { Header } from 'components/layouts/header'
-import { WelcomeToast } from 'components/welcome-toast'
 import { getCart } from 'lib/shopify'
 import { baseUrl } from 'lib/utils'
 import { Lato, Montserrat } from 'next/font/google'
@@ -52,7 +51,6 @@ export default async function RootLayout({
           <main>
             {children}
             <Toaster closeButton />
-            <WelcomeToast />
           </main>
           <Footer />
         </CartProvider>

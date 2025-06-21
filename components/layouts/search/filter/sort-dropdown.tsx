@@ -38,13 +38,13 @@ export const SortDropdown = ({
   return (
     <div className="w-full max-w-xs">
       <Field>
-        <Label className="text-sm/6 font-medium text-white mb-3 sr-only">
+        <Label className="text-sm/6 font-medium text-black mb-3 sr-only">
           Sort by
         </Label>
         <div className="relative">
           <Select
             className={clsx(
-              'block w-full appearance-none rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white',
+              'block w-full appearance-none rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-black',
               'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25',
               // Make the text of each option black on Windows
               '*:text-black',
@@ -60,7 +60,7 @@ export const SortDropdown = ({
             ))}
           </Select>
           <ChevronDownIcon
-            className="group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"
+            className="group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-black/60"
             aria-hidden="true"
           />
         </div>
